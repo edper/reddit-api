@@ -14,9 +14,11 @@
     {#each data.data.data.children as post} 
         {#if ['jpg','png','gif'].includes(post.data.url.slice(-3))}
             <div class="post post_with_image">
-                <p class="post_text">
+                <a href="https://www.reddit.com/{post.data.permalink}">
+                   <p class="post_text">
                     {@html post.data.title}
-                </p>
+                   </p>
+                </a>
                 <img src={post.data.url} alt={post.data.title}/>
                 <div class="stats">
                     <strong>Votes : </strong> {post.data.ups >= 1000 ? post.data.ups/1000 + "k" : post.data.ups} &nbsp; &nbsp;&nbsp; &nbsp;
@@ -25,9 +27,12 @@
             </div>
         {:else}
             <div class="post post_no_image">                
-                <p class="post_text">
+
+                <a href="https://www.reddit.com/{post.data.permalink}">
+                   <p class="post_text">
                     {@html post.data.title}
-                </p>
+                   </p>
+                </a>
                 <div class="stats">
                     <strong>Votes : </strong> {post.data.ups >= 1000 ? post.data.ups/1000 + "k" : post.data.ups} &nbsp; &nbsp;&nbsp; &nbsp;
                     <strong>Comments : </strong> {post.data.num_comments}
@@ -39,10 +44,15 @@
 
 
 <style>
+    * {
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
     nav {
         width:100vw;
         height:80px;
-        background-color:lightskyblue;
+        background-color:#34a8ff;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -76,6 +86,9 @@
         border-radius: 15px;
     }
 
+    nav a {
+      color:white;
+    }
     main {
         width:100vw;
         background-color:lightgray;

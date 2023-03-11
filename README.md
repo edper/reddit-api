@@ -1,7 +1,9 @@
 <<<<<<< HEAD
 # reddit-api
-Using Sveltekit to create an app using the Reddit API. The app will pick-up the different subreddit and then display on screen. When user click on a subreddit it would show the different posts on that subreddit.
-=======
+======
+```bash 
+Using Sveltekit to create an app using the Reddit API. The app will pick-up the different subreddit categories and then display on screen. When user click on a subreddit category it would show the different posts on that subreddit category.
+```
 # create-svelte
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).

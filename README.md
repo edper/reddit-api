@@ -2,7 +2,9 @@
 # reddit-api
 ======
 ```bash 
-Using Sveltekit to create an app using the Reddit API. The app will pick-up the different subreddit categories and then display on screen. When user click on a subreddit category it would show the different posts on that subreddit category.
+Using Sveltekit to create an app using the Reddit API. The app will pick-up the 
+different subreddit categories and then display on screen. When user click on 
+a subreddit category it would show the different posts on that subreddit category.
 ```
 # create-svelte
 

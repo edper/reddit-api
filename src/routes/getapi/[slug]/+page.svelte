@@ -26,13 +26,21 @@
                 </div>                
             </div>
         {:else}
-            <div class="post post_no_image">                
-
+            <div class={post.data.is_video ? "post video" : "post post_no_image"}>           
                 <a href="https://www.reddit.com/{post.data.permalink}">
                    <p class="post_text">
                     {@html post.data.title}
                    </p>
                 </a>
+                {#if post.data.is_video}
+                    <div>
+                        <video width="700" height="500" controls>
+                            <source src={post.data.secure_media.reddit_video.scrubber_media_url} type="video/mp4">
+                                  <source src="movie.ogg" type="video/ogg">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                {/if}
                 <div class="stats">
                     <strong>Votes : </strong> {post.data.ups >= 1000 ? post.data.ups/1000 + "k" : post.data.ups} &nbsp; &nbsp;&nbsp; &nbsp;
                     <strong>Comments : </strong> {post.data.num_comments}
@@ -66,6 +74,8 @@
     .post_text {
         font-size:1.5em;
         font-family: Arial, Helvetica, sans-serif;
+        padding:15px 10px;
+        text-align:center;
     }
     .post {
         background-color: white;
@@ -75,7 +85,7 @@
         flex-direction: column;
         align-items: center;
     }
-    .post_with_image {
+    .post_with_image, .video {
         width:750px;
         height:650px;
         border-radius: 15px;
